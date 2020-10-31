@@ -254,7 +254,7 @@ var EpubViewData = GObject.registerClass({
                     if (result <= 0) break
                     position = i + 1
                 }
-                this._annotationsList.insert(position, annotation)
+                //this._annotationsList.insert(position, annotation)
             }
 
             annotation.connect('notify::color', () => {
