@@ -371,14 +371,14 @@ var Storage = GObject.registerClass({
         this.indent = indent
         this._file = Gio.File.new_for_path(path)
         this._data = this._read()
-        this._monitor = this._file.monitor(Gio.FileMonitorFlags.NONE, null)
-        this._monitor.connect('changed', () => {
-            if (this._getModified() > this._modified) {
-                debug('externally modified: ' + this._file.get_path())
-                this._data = this._read()
-                this.emit('externally-modified')
-            }
-        })
+        //this._monitor = this._file.monitor(Gio.FileMonitorFlags.NONE, null)
+        //this._monitor.connect('changed', () => {
+            //if (this._getModified() > this._modified) {
+                //debug('externally modified: ' + this._file.get_path())
+                //this._data = this._read()
+                //this.emit('externally-modified')
+            //}
+        //})
         this._debouncedWrite = debounce(this._write.bind(this), 1000)
     }
     static getPath(type, key, ext = '.json') {
